@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+
+<div th:if="${message}!=null" role="alert" th:classappend="${message}!=null?'alert alert-success':''">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong th:text="${message}==null?'':${message}">Success!</strong> You have been signed in successfully!
+</div>
+<nav th:replace="fragments/navigation::navigationbar"></nav>
+
+    <div class="container">
+        <div class="row offset-2">
+                    <div class="card col-3 mr-1 mt-1">
+                        <div class="card-body">
+                            <a th:href="@{/availableclasses}"><span class="text-center"> <i class="fa fa-plus-circle text-info" aria-hidden="true"></i> Enroll (Student)</span></a>
+                        </div>
+                    </div>
+
+                    <div class="card col-3 mr-1 mt-1">
+                        <div class="card-body">
+                            <i class="fa fa-minus-circle text-info" aria-hidden="true"></i>
+                           Drop (Student)
+                        </div>
+                    </div>
+
+
+
+                    <div class="card col-3 mr-1 mt-1">
+                        <div class="card-body">
+                            <i class="fa fa-search text-info" aria-hidden="true"></i>
+                            View My Schedule <br> (Student)
+                        </div>
+                    </div>
+
+                    <div class="card col-3 mr-1 mt-1">
+                        <div class="card-body">
+                            <i class="fa fa-search text-info" aria-hidden="true"></i>
+                            View My Classes <br> (Teacher)
+                        </div>
+                    </div>
+
+
+                    <div class="card col-3 mr-1 mt-1">
+                        <div class="card-body">
+                            <i class="fa fa-id-card text-info" aria-hidden="true"></i>
+                            View transcript
+                            <br>(Student)
+                        </div>
+                    </div>
+
+
+                    <div class="card col-3 mr-1 mt-1">
+                        <div class="card-body">
+                            <i class="fa fa-money text-info" aria-hidden="true"></i>
+                            Buy transcript <br>(PDF)(Student)
+                        </div>
+                    </div>
+
+                    <div class="card col-3 mr-1 mt-1">
+                        <div class="card-body">
+                            <i class="fa fa-list text-info" aria-hidden="true"></i>
+                            View all courses <br> (Student and Instructor)
+                        </div>
+                    </div>
+
+                    <div class="card col-3 mr-1 mt-1">
+                        <div class="card-body">
+                            <i class="fa fa-calendar text-info" aria-hidden="true"></i>
+                            <a th:href="@{/listmyclasses}"><span class="text-center"> <i class="fa fa-plus-circle text-info" aria-hidden="true"></i>   View current classes <br> (Student and Instructor)</span></a>
+                        </div>
+                    </div>
+
+
+                        <div class="card col-3 mr-1 mt-1">
+                            <div class="card-body">
+                                <i class="fa fa-check-square text-info" aria-hidden="true"></i>
+                                Assign grades <br> (Instructor)
+                            </div>
+                        </div>
+
+                        <div class="card col-3 mr-1 mt-1">
+                            <div class="card-body">
+                                <i class="fa fa-history text-info" aria-hidden="true"></i>
+                                View grade sheets <br> Instructor)
+                            </div>
+                        </div>
+
+        </div>
+
+
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/timeout.js"></script>
+</body>
+</html>

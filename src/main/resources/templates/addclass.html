@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Dalton College</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="/register" class="nav-link"> Sign up</a>
+            </li>
+            <li class="nav-item">
+                <a href="/register" class="nav-link"> Log In/Log out</a>
+            </li>
+        </ul>
+        <!--<form class="form-inline my-2 my-lg-0">-->
+            <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+            <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+        <!--</form>-->
+    </div>
+</nav>
+    <div class="container">
+
+        <!--Add a class (basic information)-->
+        <h1>Add a class</h1>
+        <div class="col-6 offset-3">
+        <form th:action="@{/addclass}" method="post" th:object="${aClass}">
+            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label for="crn">CRN:</label>
+                <input type="text" th:field="*{crn}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="className">Name</label>
+                <input type="text" th:field="*{className}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="subjectCode">Subject Code</label>
+                <input type="text" th:field="*{subjectCode}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="sectionCode">Section Code</label>
+                <input type="text" th:field="*{sectionCode}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="semesterCode">Semester Code:</label>
+                <input type="text" th:field="*{semesterCode}" class="form-control">
+            </div>
+
+            <button class="btn btn-info float-right">Save</button>
+        </form>
+        </div>
+        <!--End of adding a class-->
+
+        <h1>List classes</h1>
+
+        <!--List classes-->
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-0">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Class Name</h5>
+                    <small>CRN - Course Reference Number</small>
+                </div>
+                <p class="mb-1">Section Code</p>
+                <div class="row">
+                    <small class="col">Subject Code </small>
+                    <small class="col">Enrolled Students</small>
+                    <small class="col text-success">Enroll</small>
+                    <small class="col text-danger">Drop</small>
+                    <small class="col">Teacher</small>
+                </div>
+            </a>
+        </div>
+        <!--End of class list-->
+
+        <!--List transcript-->
+        <div class="col-6">
+            <table class="table">
+                <thead>
+                    <th>Class</th>
+                    <th>Grade</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Biology</td>
+                        <td>85.80%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End of transcript -->
+
+        <!--Student grades-->
+        <h5>Grade sheet for Biology 101 (CRN# 12345)</h5>
+        <div class="col-6 offset-1">
+            <table class="table">
+                <thead>
+                <th>Student Name</th>
+                <th>Grade</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Sum Wun Person</td>
+                    <td>85.80%</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End of student roster-->
+
+        <!--Student roster-->
+
+        <h5>Students in Biology 101 (CRN# 12345)</h5>
+        <div class="col-6 offset-1">
+            <table class="table">
+                <thead>
+                <th>Student Name</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>First Bio Student</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--End of student roster-->
+    </div>
+
+</div>
+
+
+
+    </div>
+    <script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

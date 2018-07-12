@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/general :: pagehead('Update Grades for this class')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+
+        <span sec:authorize="hasAuthority('TEACHER')">
+        <h3>Classes Taught</h3>
+        <div th:replace="fragments/listfragments::listcourses(${thisUser.instructs})"></div>
+        </span>
+
+        <span sec:authorize="hasAuthority('STUDENT')">
+        <h4>Classes Taken</h4>
+        <div th:replace="fragments/listfragments::listcourses(${thisUser.takes})"></div>
+        </span>
+    </div>
+</body>
+</html>
+
+<!--List classes I teach-->
+<!--End of classes I teach-->

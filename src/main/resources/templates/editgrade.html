@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/general :: pagehead('Edit Grade')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="col-6 offset-3">
+    <form th:fragment="editGrades" th:action="@{/savegrade}" th:object="${theGrade}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{student}">
+            <input type="hidden" th:field="*{theClass}">
+            <p th:text="${theGrade.student.firstName}+' '+${theGrade.student.lastName}"></p>
+            <input th:value="${theGrade.theGrade}" th:field="*{theGrade}">
+        <button type="submit" class="btn btn-success">Save</button>
+    </div>
+
+</form>
+</div>
+
+</body>
+</html>

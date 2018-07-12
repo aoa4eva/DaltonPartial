@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--Add a variable to your HTML fragment, so that this can change the value of attributes within the fragment-->
+<head th:fragment="pagehead(title)">
+    <meta charset="UTF-8">
+    <title th:text="${title}==null?'Dalton College':${title}"></title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Include styling here-->
+</head>
+
+<body>
+
+</body>
+
+    <!--Include scripts here-->
+<script src="js/bootstrap.bundle.js"></script>
+</html>

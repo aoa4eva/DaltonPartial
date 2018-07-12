@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/general :: pagehead('This is a title')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="fragments/navigation::navigationbar"></nav>
+    <div th:replace="fragments/searchfragments::searchthis"></div>
+    <h1>This is used to test for functionality</h1>
+    <div th:replace="fragments/listfragments::showMyClasses(${currentUser})">
+    </div>
+</body>
+</html>

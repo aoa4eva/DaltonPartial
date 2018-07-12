@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Register User</title>
+</head>
+<body>
+    <h1>Register a user</h1>
+    <form th:action="@{/register}" th:object="${newuser}" method="post">
+
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span><br/>
+        <input type="text" placeholder="Enter username" th:field="*{username}">
+
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{firstName}"></span><br/>
+        <input type="text" placeholder="Enter first name" th:field="*{firstName}">
+
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{lastName}"></span><br/>
+        <input type="text" placeholder="Enter last name" th:field="*{lastName}">
+
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span><br/>
+        <input type="password" placeholder="Enter password" th:field="*{password}">
+
+        <div class="form-group">
+            <select th:field="*{roles}" multiple class="form-control">
+                <option th:each="eachRole:${roleList}" th:value="${eachRole.id}" th:text="${eachRole.role}">Role name here</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Submit">
+
+    </form>
+</body>
+</html>

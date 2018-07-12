@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!--List Classes-->
+    <div class="list-group" th:fragment="listcourses(classes)">
+        <span th:each="eachClass:${classes}" class="list-group-item list-group-item-action flex-column align-items-start mb-0">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1" th:text="${eachClass.className}"></h5>
+                <small th:text="${eachClass.crn}">CRN - Course Reference Number</small>
+                <p class="mb-1" th:text="${eachClass.sectionCode}">Section Code</p>
+            </div>
+
+            <div class="row">
+                <small class="col" th:text="${eachClass.subjectCode}">Subject Code </small>
+                <small class="col" th:text="${#lists.size(eachClass.daltonusers)}+' Enrolled Students'">Enrolled Student(s)</small>
+                <!--Display enroll if the user is NOT teaching the course AND has not already enrolled-->
+                 <a class="small col text-success" th:if="${!#lists.contains(eachClass.daltonusers,thisUser) and !#lists.contains(eachClass.instructors,thisUser)}" th:href="@{/enroll/(classid=${eachClass.id})}">Enroll</a>
+                 <a class="small col text-danger"  th:if="${#lists.contains(eachClass.daltonusers,thisUser)}" th:href="@{/drop/(classid=${eachClass.id})}">Drop</a>
+                 <a class="small col text-success"   th:if="${#lists.contains(eachClass.instructors,thisUser)}" th:href="@{/roster/(classid=${eachClass.id})}">View Roster</a>
+                <small class="col">Teacher</small>
+            </div>
+        </span>
+    </div>
+ <!--End of class list-->
+
+
+
+    <!--Show class roster-->
+    <table th:fragment="roster" class="table table-striped">
+        <thead class="thead-light">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Grade</th>
+        </thead>
+        <tbody>
+            <tr th:each="eachGrade : ${aClass.grades}">
+                <td th:text="${eachGrade.student.firstName}"></td>
+                <td th:text="${eachGrade.student.lastName}"></td>
+                <td> <a class="small col text-danger" th:href="@{/editgrades/(theGrade=${eachGrade.id})}">Edit Grade</a></td>
+                <td>Edit Grade</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--End of class roster-->
+
+    <!--This is to update many objects at a time. The most method needs to be worked on.-->
+
+    <form th:fragment="updateGrades" th:action="@{/savegrade}" th:object="${aClass}" method="post">
+        <div th:each="eachGrade,anindex:*{grades}">
+            <p th:text="${eachGrade.student.firstName}+' '+${eachGrade.student.lastName}"></p>
+            <input th:value="${eachGrade.theGrade}" th:field="*{grades[__${anindex.index}__].theGrade}">
+        </div>
+       <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+    <form th:fragment="editGrades" th:action="@{/savegrade}" th:object="${aGrade}" method="post">
+        <div th:each="eachGrade,anindex:*{grades}">
+            <p th:text="${eachGrade.student.firstName}+' '+${eachGrade.student.lastName}"></p>
+            <input th:value="${eachGrade.theGrade}" th:field="*{grades[__${anindex.index}__].theGrade}">
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</body>
+</html>

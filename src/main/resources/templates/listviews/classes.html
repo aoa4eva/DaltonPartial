@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/general :: pagehead('Classes')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" >
+    <div th:text="${message}==null?'':${message}" th:classappend="${message}!=null?'alert alert-success':''"></div>
+    <h1>This is used to test for functionality</h1>
+    <div th:replace="fragments/listfragments::listcourses(${classes})">
+    </div>
+    <script src="js/bootstrap.bundle.js"></script>
+</div>
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>
