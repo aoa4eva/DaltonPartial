@@ -12,7 +12,7 @@
 
 <div th:if="${message}!=null" role="alert" th:classappend="${message}!=null?'alert alert-success':''">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <strong th:text="${message}==null?'':${message}">Success!</strong> You have been signed in successfully!
+    <strong th:text="${message}==null?'':${message}">Success!</strong>
 </div>
 <nav th:replace="fragments/navigation::navigationbar"></nav>
 
