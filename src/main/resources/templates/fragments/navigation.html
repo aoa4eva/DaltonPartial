@@ -22,7 +22,7 @@
                 <a href="#" class="nav-link"> <i class="fa fa-pencil" aria-hidden="true" title="Student"></i></a>
             </li>
             <li class="nav=item">
-                <a href="#" class="nav-link" th:text="'Logged in as: '+${#authentication.name}"></a>
+                <a href="#" class="nav-link" th:text="'Logged in as: '+${#authentication.name}" sec:authorize="isAuthenticated()"></a>
             </li>
             <li>
                 <a href="/register" class="nav-link"> Sign up</a>
