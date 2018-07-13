@@ -65,5 +65,21 @@
         </div>
         <button type="submit" class="btn btn-success">Save</button>
     </form>
+
+    <div class="col-8 offset-2" th:fragment="transcript(currentUser)">
+        <h1 class="text-center" th:inline="text">Transcript for [[${currentUser.firstName}]] [[${currentUser.lastName}]]</h1>
+            <div class="offset-3">
+            <div class="row">
+                <div class="col-4"><p class="lead">Class Taken</p></div>
+                <div class="col-4"><p class="lead pull-right">Grade Earned</p></div>
+            </div>
+            <span th:each="eachGrade:${currentUser.studentGrade}">
+                <div class="row">
+                    <div class="col-4"><p th:text="${eachGrade.theClass.className}"></p></div>
+                    <div class="col-4"><p th:text="${eachGrade.theGrade}" class="float-right"></p></div>
+                </div>
+            </span>
+            </div>
+    </div>
 </body>
 </html>

@@ -38,9 +38,9 @@ public class GradeService {
         grades.save(aGrade);
     }
 
-//    Change the method to read a transcrip
-//    public Iterable <Grade> getMyTranscript(Daltonuser theStudent)
-//    {
-//        return grades.findAllByStudentIs(theStudent);
-//    }
+//    Change the method to read a transcript
+    public Iterable <Grade> getMyTranscript(Daltonuser theStudent)
+    {
+        return grades.findAllByStudentIs(theStudent);
+    }
 }

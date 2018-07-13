@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -35,7 +36,7 @@
 
                     <div class="card col-3 mr-1 mt-1">
                         <div class="card-body">
-                            <i class="fa fa-minus-circle text-info" aria-hidden="true"></i>
+                            <a th:href="@{/listmyclasses}"><i class="fa fa-minus-circle text-info" aria-hidden="true"></i></a>
                            Drop (Student)
                         </div>
                     </div>
@@ -45,23 +46,22 @@
                     <div class="card col-3 mr-1 mt-1">
                         <div class="card-body">
                             <i class="fa fa-search text-info" aria-hidden="true"></i>
-                            View My Schedule <br> (Student)
+                            <a th:href="@{/listmyclasses}"> View My Schedule <br> (Student)</a>
                         </div>
                     </div>
 
                     <div class="card col-3 mr-1 mt-1">
                         <div class="card-body">
-                            <i class="fa fa-search text-info" aria-hidden="true"></i>
-                            View My Classes <br> (Teacher)
+                            <a th:href="@{/listmyclasses}"> <i class="fa fa-search text-info" aria-hidden="true"></i>
+                                View My Classes <br> (Teacher)</a>
                         </div>
                     </div>
 
-
                     <div class="card col-3 mr-1 mt-1">
                         <div class="card-body">
-                            <i class="fa fa-id-card text-info" aria-hidden="true"></i>
+                            <a th:href="@{/transcript}">  <i class="fa fa-id-card text-info" aria-hidden="true"></i>
                             View transcript
-                            <br>(Student)
+                                <br>(Student)</a>
                         </div>
                     </div>
 

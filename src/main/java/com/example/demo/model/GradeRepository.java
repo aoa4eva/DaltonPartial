@@ -6,5 +6,5 @@ public interface GradeRepository extends CrudRepository<Grade, Long> {
       Grade findByStudentIsAndTheClass(Daltonuser theStudent,AcademicClass theClass);
       Iterable <Grade> findAllByStudentIsAndTheClass(Daltonuser theStudent, AcademicClass theClass);
 //    Iterable <Grade> findAllByTheClass(AcademicClass theClass);
-//    Iterable <Grade> findAllByStudentIs(Daltonuser theStudent);
+    Iterable <Grade> findAllByStudentIs(Daltonuser theStudent);
 }

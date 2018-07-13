@@ -46,12 +46,14 @@ public class DataLoader implements CommandLineRunner {
 
         AcademicClass aClass = new AcademicClass();
         aClass.setCourseNo(1010);
+        aClass.setClassName("Biology 101");
         aClass.setSubjectCode("BIO");
         aClass.setCrn(10072);
         aClass.setSectionCode("Biology 1, Section 1, Monday 5:50pm");
         classes.save(aClass);
 
         AcademicClass anotherClass = new AcademicClass();
+        anotherClass.setClassName("Biology 102");
         anotherClass.setCourseNo(1010);
         anotherClass.setSubjectCode("BIO");
         anotherClass.setCrn(10073);

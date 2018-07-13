@@ -30,6 +30,7 @@ public class TestController {
     @Autowired
     GradeRepository grades;
 
+
     @RequestMapping("/index")
     public String showIndex(Model model, Authentication auth) {
         Daltonuser currentUser = userRepository.findByUsername(auth.getName());
@@ -143,6 +144,15 @@ public class TestController {
 //        model.addAttribute("aClass",theClass);
 //        return "studentgrades";
 //    }
+
+    @GetMapping("/transcript")
+    public String showTranscript(Model model, Authentication auth)
+    {
+
+        Daltonuser currentUser = userRepository.findByUsername(auth.getName());
+        model.addAttribute("currentUser",currentUser);
+        return "listviews/transcript";
+    }
 
     @GetMapping("/editgrades")
     public String showEdit(Model model, HttpServletRequest request)
