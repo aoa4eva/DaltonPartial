@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="fragments/navigation::navigationbar"></nav>
     <div class="container" >
         <div th:text="${message}==null?'':${message}" th:classappend="${message}!=null?'alert alert-success':''"></div>
         <div th:replace="fragments/listfragments::transcript(${currentUser})">

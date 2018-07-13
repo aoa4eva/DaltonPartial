@@ -11,18 +11,6 @@ public class GradeService {
     @Autowired
     GradeRepository grades;
 
-//Change method to find grades for student
-//    public Iterable<Grade> findMyGrades(Daltonuser theUser, AcademicClass theClass)
-//    {
-//      return grades.findAllByStudentIsAndTheClass(theUser,theClass);
-//    }
-
-//    Change method to find grades for class
-//    public Iterable <Grade> getClassGradesFor(AcademicClass theClass)
-//    {
-//        return grades.findAllByTheClass(theClass);
-//    }
-
     public void setMyGrade(Daltonuser theStudent, AcademicClass theClass, double theGrade)
     {
 
@@ -38,9 +26,4 @@ public class GradeService {
         grades.save(aGrade);
     }
 
-//    Change the method to read a transcript
-    public Iterable <Grade> getMyTranscript(Daltonuser theStudent)
-    {
-        return grades.findAllByStudentIs(theStudent);
-    }
 }
